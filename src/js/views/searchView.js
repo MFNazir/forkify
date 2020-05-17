@@ -11,6 +11,14 @@ export const clearResults = () => {
     elements.searchResPages.innerHTML = '';
 };
 
+export const highlightSelected = id => {
+    const resultsArray = Array.from(document.querySelectorAll('.results__link'));
+    resultsArray.forEach(el => {
+        el.classList.remove('results__link--active');
+    });
+    document.querySelector(`.results__link[href="#${id}"]`).classList.add('results__link--active');
+};
+
 //Lecture 144
 const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
